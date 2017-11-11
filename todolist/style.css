@@ -1,0 +1,15 @@
+.note {
+    padding: 7px 10px;
+    width: 300px;
+    font-weight: bold;
+    background-color: #d6d6d6;
+}
+
+.note input {
+    float: right;
+}
+
+.checked {
+    background-color: #868686;
+    text-decoration: line-through;
+}
