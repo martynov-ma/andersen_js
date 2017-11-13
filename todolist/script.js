@@ -8,7 +8,10 @@ window.onload = function () {
 
 function addNote() {
     var noteHeader = noteHeaderInput.value;
-    if (!noteHeader.length) return;
+    if (!noteHeader.trim().length) {
+        noteHeaderInput.value = '';
+        return;
+    }
     notesDiv.appendChild(newNote(noteHeader));
     noteHeaderInput.value = '';
 }
@@ -34,6 +37,9 @@ function deleteNote() {
 }
 
 function checkNote() {
-    if (this.className.split(' ').length == 1) this.className += ' checked';
-    else this.className = 'note';
+    if (this.className.split(' ').length == 1) {
+        this.className += ' checked';
+    } else {
+        this.className = 'note';
+    } 
 }
