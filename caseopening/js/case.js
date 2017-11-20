@@ -1,7 +1,8 @@
-function Case() {
+function Case(name, image) {
+    this.name = name;
+    this.image = image;
     this.items = [];
     this.currentChanceSum = 0;
-    this.addItems.apply(this, arguments);
 }
 
 Case.prototype.addItem = function(newItem) {
@@ -38,7 +39,26 @@ Case.prototype.open = function() {
     var r = Math.random() * this.currentChanceSum;
     for (var i = 1; i < this.items.length; i++) {
         if (r < this.items[i].chance) {
-            return this.items[i - 1].item;
+            this.items[i - 1].item.show();
+            return;
         }
     }
+}
+
+Case.prototype.getCaseDOMElement = function() {
+    var caseDiv = document.createElement('div');
+    caseDiv.className = 'case-div';
+    
+    var caseImg = document.createElement('div');
+    caseImg.className = 'case-img';
+    caseImg.style.backgroundImage = "url(./img/" + this.image + ")";
+    caseDiv.appendChild(caseImg);
+
+    var caseName = document.createElement('div');
+    caseName.className = 'case-name';
+    caseName.innerHTML = this.name;
+    caseDiv.appendChild(caseName);
+
+    caseOpenBtn.onclick = this.open.bind(this);
+    return caseDiv;
 }

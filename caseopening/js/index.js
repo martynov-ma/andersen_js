@@ -1,21 +1,19 @@
 window.onload = function() {
-    var firstCase = new Case();
-    firstCase.addItems(
-        new Item('Uncommon'),
-        new Item('Uncommon'),
-        new Item('Uncommon'),
-        new Item('Legendary'),
-        new Item('Uncommon'),
-        new Item('Rare'),
-        new Item('Rare'),
-        new Item('Rare'),
-        new Item('Mythical'),
-        new Item('Mythical'),
-        new Item('Legendary'),
-        new Item('Immortal')
-    );
+    var currentCaseDiv = document.getElementById("currentCaseDiv");
+    var caseOpenBtn = document.getElementById('caseOpenBtn');
+    var droppedItemsDiv = document.getElementById('droppedItemsDiv');
 
-    for (var i = 0; i < 5; i++) {
-        console.log(firstCase.open().type);
-    }
+    var bravoCase = new Case('Operation Bravo Case', 'case.png');
+    bravoCase.addItems(
+        new Item('UMP-45 | Bone Pile', 'ump.png', Item.MilSpec),
+        new Item('Nova | Tempest', 'nova.png', Item.MilSpec),
+        new Item('Galil AR | Shattered', 'galil.png', Item.MilSpec),
+        new Item('M4A4 | Zirka', 'm4.png', Item.Restricted),
+        new Item('USP-S | Overgrowth', 'usp.png', Item.Restricted),
+        new Item('P2000 | Ocean Foam', 'p2000.png', Item.Classified),
+        new Item('AWP | Graphite', 'awp.png', Item.Classified),
+        new Item('AK-47 | Fire Serpent', 'ak.png', Item.Covert),
+        new Item('M9 Bayonet | Crimson Web', 'knife.png', Item.Knife)
+    );
+    currentCaseDiv.appendChild(bravoCase.getCaseDOMElement());
 }

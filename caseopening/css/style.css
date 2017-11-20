@@ -1,0 +1,28 @@
+.case-div {
+    width: 170px;
+    border: 1px solid black;
+    box-shadow: 0 0 10px grey;
+}
+
+.case-img {
+    margin: 15px auto 0 auto;
+    width: 150px;
+    height: 150px;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+
+.case-name {
+    text-align: center;
+    padding: 10px 0;
+    border-top: 1px solid black;
+}
+
+.open-btm-container {
+    width: 170px;
+    padding: 10px 25px;
+}
+
+.open-btm-container button {
+    width: 120px;
+}

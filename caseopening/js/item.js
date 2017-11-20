@@ -1,47 +1,59 @@
-function Item(type) {
+function Item(name, image, type) {
+    this.name = name;
     this.type = type;
+    this.image = image;
     switch (type) {
-        case 'Uncommon':
+        case 'MilSpec':
             this.chance = 0.40;
+            this.color = '#4b69ff';
             break;
-        case 'Rare':
+        case 'Restricted':
             this.chance = 0.35;
+            this.color = '#8847ff';
             break;
-        case 'Mythical':
+        case 'Classified':
             this.chance = 0.20;
+            this.color = '#d32ee6';
             break;
-        case 'Legendary':
-            this.chance = 0.04;
+        case 'Covert':
+            this.chance = 0.06;
+            this.color = '#eb4b4b';
             break;
-        case 'Immortal':
-            this.chance = 0.01;
+        case 'Knife':
+            this.chance = 0.03;
+            this.color = '#ffae39';
             break;
     
         default:
             this.type = 'Common'
+            this.color = '#b0c3d9';
             this.chance = 0.50;
             break;
     }
+
+    Item.MilSpec = "MilSpec";
+    Item.Restricted = "Restricted";
+    Item.Classified = "Classified";
+    Item.Covert = "Covert";
+    Item.Knife = "Knife";
+
+    Item.prototype.show = function() {
+        var itemDiv = document.createElement('div');
+        itemDiv.className = 'case-div';
+        itemDiv.style.display = 'inline-block';
+        itemDiv.style.margin = '5px';
+    
+        var itemImg = document.createElement('div');
+        itemImg.className = 'case-img';
+        itemImg.style.backgroundImage = "url(./img/" + this.image + ")";
+        itemDiv.appendChild(itemImg);
+        
+        var itemName = document.createElement('div');
+        itemName.className = 'case-name';
+        itemName.innerHTML = this.name;
+        itemName.style.backgroundColor = this.color;
+        itemDiv.appendChild(itemName);
+    
+        droppedItemsDiv.appendChild(itemDiv);
+    }
 }
-
-/*Item.Type = typeEnum({Common: 0.50, Rare: 0.30, Mythical: 0.15, Legendary: 0.04, Immortal: 0.01});
-
-function typeEnum(types) {
-    typeEnum.values = [];
-
-    var proto = typeEnum.prototype = {
-        constructor: typeEnum,
-        type: function() { return this.type },
-        chance: function() { return this.chance }
-    }
-
-    for (name in types) {
-        var type = Object.create(proto);
-        type.name = name;
-        type.value = types[name];
-        typeEnum[name] = type;
-        typeEnum.values.push(type);
-    }
-
-    return typeEnum;
-}*/
