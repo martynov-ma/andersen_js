@@ -20,7 +20,7 @@ function Item(name, image, type) {
             this.color = '#eb4b4b';
             break;
         case 'Knife':
-            this.chance = 0.03;
+            this.chance = 0.025;
             this.color = '#ffae39';
             break;
     
@@ -30,12 +30,6 @@ function Item(name, image, type) {
             this.chance = 0.50;
             break;
     }
-
-    Item.MilSpec = "MilSpec";
-    Item.Restricted = "Restricted";
-    Item.Classified = "Classified";
-    Item.Covert = "Covert";
-    Item.Knife = "Knife";
 
     Item.prototype.show = function() {
         var itemDiv = document.createElement('div');

@@ -37,9 +37,9 @@ Case.prototype.addItems = function() {
 
 Case.prototype.open = function() {
     var r = Math.random() * this.currentChanceSum;
-    for (var i = 1; i < this.items.length; i++) {
-        if (r < this.items[i].chance) {
-            this.items[i - 1].item.show();
+    for (var i = 0; i < this.items.length - 1; i++) {
+        if (r > this.items[i].chance && r <= this.items[i + 1].chance) {
+            this.items[i + 1].item.show();
             return;
         }
     }
