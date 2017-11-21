@@ -4,19 +4,24 @@
     <title>Case opening</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.css">
   </head>
   <body>
-      <h2>Case opening</h2>
-
       <div class="container">
-        <div class="raw">
-          <div class="offset-4 col-4 offset-sm-4 col-sm-4 offset-md-5 col-md-2">
-            <div id="currentCaseDiv"></div>
-            <div class="open-btm-container">
-              <button id="caseOpenBtn" type="button" class="btn btn-sm btn-success">Открыть</button>
+        <h2>Case opening</h2>
+        <div class="row">
+          <div class="col-10 offset-1">
+            <div class="row">
+              <div class="col-4">
+                <ul id="allCurrentTypesUl"></ul>
+              </div>
+              <div class="col-4">
+                <div id="currentCaseDiv"></div>
+                <div class="open-btn-container">
+                  <button id="caseOpenBtn" type="button" class="btn btn-sm btn-success">Открыть</button>
+                </div>
+              </div>
             </div>
-            
           </div>
         </div>
         <div class="raw">
@@ -25,6 +30,7 @@
       </div>
       
       <script src="js/item.js"></script>
+      <script src="js/itemtype.js"></script>
       <script src="js/case.js"></script>
       <script src="js/index.js"></script>
   </body>

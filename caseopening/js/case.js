@@ -8,10 +8,10 @@ function Case(name, image) {
 Case.prototype.addItem = function(newItem) {
     if (newItem instanceof Item) {
         this.items.push({
-            chance: newItem.chance + this.currentChanceSum,
+            chance: newItem.type.chance + this.currentChanceSum,
             item: newItem
         });
-        this.currentChanceSum += newItem.chance;
+        this.currentChanceSum += newItem.type.chance;
     } else {
         throw "[this item cant be stored in the case]";
     }
@@ -37,25 +37,30 @@ Case.prototype.addItems = function() {
 
 Case.prototype.open = function() {
     var r = Math.random() * this.currentChanceSum;
-    for (var i = 0; i < this.items.length - 1; i++) {
-        if (r > this.items[i].chance && r <= this.items[i + 1].chance) {
-            this.items[i + 1].item.show();
+    //var temp;
+    for (var i = 0; i < this.items.length; i++) {
+        if (r <= this.items[i].chance) {
+            /*temp = this.items[i];
+            console.log(r.toFixed(4) + " -> [" + (temp.chance - temp.item.type.chance).toFixed(2) + 
+                        " - " + temp.chance.toFixed(2) + "] => " + 
+                        temp.item.name.split(" ")[0]);*/
+            showDroppedItem(this.items[i].item);
             return;
         }
     }
 }
 
-Case.prototype.getCaseDOMElement = function() {
+Case.prototype.getDOMElement = function() {
     var caseDiv = document.createElement('div');
-    caseDiv.className = 'case-div';
+    caseDiv.className = 'element-div';
     
     var caseImg = document.createElement('div');
-    caseImg.className = 'case-img';
+    caseImg.className = 'element-img';
     caseImg.style.backgroundImage = "url(./img/" + this.image + ")";
     caseDiv.appendChild(caseImg);
 
     var caseName = document.createElement('div');
-    caseName.className = 'case-name';
+    caseName.className = 'element-name';
     caseName.innerHTML = this.name;
     caseDiv.appendChild(caseName);
 
