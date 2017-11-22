@@ -6,7 +6,7 @@ function Item(name, image, type) {
 
 Item.prototype.getDOMElement = function() {
     var itemDiv = document.createElement('div');
-    itemDiv.className = 'element-div';
+    itemDiv.className = 'element-div animated bounceIn';
     itemDiv.style.display = 'inline-block';
     itemDiv.style.margin = '5px';
 

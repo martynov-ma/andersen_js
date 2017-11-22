@@ -37,13 +37,13 @@ Case.prototype.addItems = function() {
 
 Case.prototype.open = function() {
     var r = Math.random() * this.currentChanceSum;
-    //var temp;
+    var temp;
     for (var i = 0; i < this.items.length; i++) {
         if (r <= this.items[i].chance) {
-            /*temp = this.items[i];
+            temp = this.items[i];
             console.log(r.toFixed(4) + " -> [" + (temp.chance - temp.item.type.chance).toFixed(2) + 
                         " - " + temp.chance.toFixed(2) + "] => " + 
-                        temp.item.name.split(" ")[0]);*/
+                        temp.item.name.split(" ")[0]);
             showDroppedItem(this.items[i].item);
             return;
         }
@@ -64,6 +64,15 @@ Case.prototype.getDOMElement = function() {
     caseName.innerHTML = this.name;
     caseDiv.appendChild(caseName);
 
-    caseOpenBtn.onclick = this.open.bind(this);
+    caseOpenBtn.addEventListener('click', this.open.bind(this));
+    caseOpenBtn.addEventListener('click', toggleCaseAnimation);
+    
+    window.addEventListener('keypress', this.open.bind(this));
+    window.addEventListener('animationend', toggleCaseAnimation);
+
+    function toggleCaseAnimation() {
+        caseDiv.classList.toggle("animated");
+        caseDiv.classList.toggle("pulse");
+    }
     return caseDiv;
 }
