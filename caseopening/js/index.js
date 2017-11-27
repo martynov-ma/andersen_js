@@ -3,6 +3,7 @@ window.onload = function() {
     var caseOpenBtn = document.getElementById('caseOpenBtn');
     var droppedItemsDiv = document.getElementById('droppedItemsDiv');
     var allCurrentTypesUl = document.getElementById('allCurrentTypesUl');
+    var allItemsInCaseUl = document.getElementById('allItemsInCaseUl');
 
     showAllItemTypes();
 
@@ -23,6 +24,8 @@ window.onload = function() {
     /*for (var i = 0; i < 100; i++) {
         bravoCase.open();
     }*/
+
+    showAllItemsInCase(bravoCase);
 }
 
  function showAllItemTypes() {
@@ -42,6 +45,26 @@ window.onload = function() {
         typeListItem.innerText = type.name + " - " + (type.chance * 100 / totalChanse).toFixed(0) + "%";
         typeListItem.style.backgroundColor = type.color;
         allCurrentTypesUl.appendChild(typeListItem);
+    });
+}
+
+function showAllItemsInCase(currentCase) {
+    var itemListItem;
+    var itemImg;
+    var itemNameDiv;
+    currentCase.items.forEach(function(caseItem) {
+        itemListItem = document.createElement('li');
+
+        itemImgDiv = document.createElement('div');
+        itemImgDiv.style.backgroundImage = "url(./img/" + caseItem.item.image + ")";
+        itemImgDiv.style.backgroundColor = caseItem.item.type.color;
+        itemListItem.appendChild(itemImgDiv);
+
+        itemNameDiv = document.createElement('span');
+        itemNameDiv.innerText = caseItem.item.name;
+        itemListItem.appendChild(itemNameDiv);
+
+        allItemsInCaseUl.appendChild(itemListItem);
     });
 }
 

@@ -1,13 +1,28 @@
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
 #allCurrentTypesUl {
     margin-top: 15px;
-    padding: 0;
     width: 180px;
-    list-style-type: none;
     border: 1px solid black;
 }
 
 #allCurrentTypesUl li {
     padding-left: 10px; 
+}
+
+#allItemsInCaseUl li div {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+
+#allItemsInCaseUl li span {
+    margin-left: 10px;
 }
 
 .element-div {
