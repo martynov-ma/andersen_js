@@ -1,0 +1,55 @@
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+#allCurrentTypesUl {
+    margin-top: 15px;
+    width: 180px;
+    border: 1px solid black;
+}
+
+#allCurrentTypesUl li {
+    padding-left: 10px; 
+}
+
+#allItemsInCaseUl li div {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+
+#allItemsInCaseUl li span {
+    margin-left: 10px;
+}
+
+.element-div {
+    width: 170px;
+    border: 1px solid black;
+    box-shadow: 0 0 10px grey;
+}
+
+.element-img {
+    margin: 15px auto 0 auto;
+    width: 150px;
+    height: 150px;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+
+.element-name {
+    text-align: center;
+    padding: 10px 0;
+    border-top: 1px solid black;
+}
+
+.open-btn-container {
+    width: 170px;
+    padding: 10px 25px;
+}
+
+.open-btn-container button {
+    width: 120px;
+}

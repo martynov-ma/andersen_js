@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Case opening</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/animate.css">
+  </head>
+  <body>
+      <div class="container">
+        <h2>Case opening</h2>
+        <p>use button or press any key</p>
+        <div class="row">
+          <div class="col-10 offset-1">
+            <div class="row">
+              <div class="col-4">
+                <ul id="allCurrentTypesUl"></ul>
+              </div>
+              <div class="col-4">
+                <div id="currentCaseDiv"></div>
+                <div class="open-btn-container">
+                  <button id="caseOpenBtn" type="button" class="btn btn-sm btn-success">Open</button>
+                </div>
+              </div>
+              <div class="col-4">
+                <ul id="allItemsInCaseUl"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="raw">
+          <div id="droppedItemsDiv"></div>
+        </div>
+      </div>
+      
+      <script src="js/item.js"></script>
+      <script src="js/itemtype.js"></script>
+      <script src="js/case.js"></script>
+      <script src="js/index.js"></script>
+  </body>
+</html>
